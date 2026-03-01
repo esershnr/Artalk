@@ -1,6 +1,8 @@
-import type { I18n } from '.'
+import { defineLocaleExternal } from './external'
 
-const zhCN: I18n = {
+const zhCN = defineLocaleExternal(
+  'zh-CN',
+  {
   /* Editor */
   placeholder: '键入内容...',
   noComment: '「此时无声胜有声」',
@@ -112,6 +114,8 @@ const zhCN: I18n = {
   ignore: '忽略',
   open: '打开',
   openName: '打开{name}',
-}
+  },
+  ['zh-TW'],
+)
 
 export default zhCN

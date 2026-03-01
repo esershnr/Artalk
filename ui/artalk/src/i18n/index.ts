@@ -1,6 +1,6 @@
 import * as Utils from '../lib/utils'
 import en, { I18n, I18nKeys } from './en'
-import zhCN from './zh-CN'
+import tr from './tr'
 import { GLOBAL_LOCALES_KEY } from './external'
 
 export type * from './en'
@@ -11,7 +11,8 @@ export type * from './en'
 export const internal = {
   en,
   'en-US': en,
-  'zh-CN': zhCN,
+  tr,
+  'tr-TR': tr,
 }
 
 /**

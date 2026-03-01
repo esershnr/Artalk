@@ -1,8 +1,6 @@
-import { defineLocaleExternal } from './external'
+import type { I18n } from '.'
 
-export default defineLocaleExternal(
-  'tr',
-  {
+const tr: I18n = {
     /* Editor */
     placeholder: 'Bir yorum bırakın',
     noComment: 'Yorum Yok',
@@ -114,6 +112,7 @@ export default defineLocaleExternal(
     ignore: 'Görmezden Gel',
     open: 'Aç',
     openName: '{name} Aç',
-  },
-  ['tr-TR'],
-)
+}
+
+export default tr
+

@@ -1,6 +1,10 @@
 {
   "name": "@esershnr/artalk",
-  "version": "2.9.1",
+  "version": "2.9.2",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A self-hosted comment system",
   "keywords": [
     "comment-system",
@@ -49,6 +53,16 @@
         "default": "./dist/i18n/ja.mjs"
       }
     },
+    "./i18n/zh-CN": {
+      "require": {
+        "types": "./dist/i18n/zh-CN.d.cts",
+        "default": "./dist/i18n/zh-CN.cjs"
+      },
+      "default": {
+        "types": "./dist/i18n/zh-CN.d.ts",
+        "default": "./dist/i18n/zh-CN.mjs"
+      }
+    },
     "./i18n/zh-TW": {
       "require": {
         "types": "./dist/i18n/zh-TW.d.cts",
@@ -89,16 +103,6 @@
         "default": "./dist/i18n/ru.mjs"
       }
     },
-    "./i18n/tr": {
-      "require": {
-        "types": "./dist/i18n/tr.d.cts",
-        "default": "./dist/i18n/tr.cjs"
-      },
-      "default": {
-        "types": "./dist/i18n/tr.d.ts",
-        "default": "./dist/i18n/tr.mjs"
-      }
-    },
     "./i18n/*": "./dist/i18n/*",
     "./Artalk.css": "./dist/Artalk.css",
     "./ArtalkLite.css": "./dist/ArtalkLite.css",
@@ -122,6 +126,16 @@
         "default": "./dist/i18n/ja.mjs"
       }
     },
+    "./dist/i18n/zh-CN": {
+      "require": {
+        "types": "./dist/i18n/zh-CN.d.cts",
+        "default": "./dist/i18n/zh-CN.cjs"
+      },
+      "default": {
+        "types": "./dist/i18n/zh-CN.d.ts",
+        "default": "./dist/i18n/zh-CN.mjs"
+      }
+    },
     "./dist/i18n/zh-TW": {
       "require": {
         "types": "./dist/i18n/zh-TW.d.cts",
@@ -130,16 +144,6 @@
       "default": {
         "types": "./dist/i18n/zh-TW.d.ts",
         "default": "./dist/i18n/zh-TW.mjs"
-      }
-    },
-    "./dist/i18n/tr": {
-      "require": {
-        "types": "./dist/i18n/tr.d.cts",
-        "default": "./dist/i18n/tr.cjs"
-      },
-      "default": {
-        "types": "./dist/i18n/tr.d.ts",
-        "default": "./dist/i18n/tr.mjs"
       }
     },
     "./dist/i18n/*": "./dist/i18n/*",
