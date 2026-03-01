@@ -3,12 +3,14 @@
 </p>
 
 > [!IMPORTANT]
-> **Unofficial Scoped Version (@esershnr/artalk)**
-> This is an unofficial fork of Artalk, scoped under the `@esershnr` namespace on NPM.
+> **Maintained Fork by @esershnr**
+>
+> This repository is a professionally maintained fork of Artalk. Due to the inactivity of the original repository, I have taken over maintenance to ensure the project remains up-to-date and feature-rich for the community.
 > 
-> **Key Enhancements:**
-> - 🇹🇷 **Full Turkish Support:** Comprehensive Turkish translations for both the client and the admin sidebar.
-> - 🔄 **Dynamic Sidebar Sync:** The sidebar (dashboard) now automatically synchronizes its language with the parent website's current locale, ensuring a consistent user experience.
+> **Key Enhancements (V2.9.3+):**
+> - 🇹🇷 **Full Turkish (TR) Localization:** Comprehensive translations for both the client and admin dashboard.
+> - 🔄 **Dynamic Sidebar Locale Sync:** The admin sidebar now intelligently synchronizes its language with the parent website's locale in real-time.
+> - 📦 **Scoped NPM Packages:** Published under `@esershnr/artalk` for reliable production use.
 >
 > **Installation:**
 > ```bash
