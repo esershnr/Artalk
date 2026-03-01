@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ArtalkType } from 'artalk'
+import type { ArtalkType } from '@esershnr/artalk'
 import { artalk, bootParams, getArtalk } from '@/global'
 import { useMobileWidth } from '@/hooks/MobileWidth'
 

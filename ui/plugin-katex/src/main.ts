@@ -1,4 +1,4 @@
-import { ArtalkPlugin } from 'artalk'
+import { ArtalkPlugin } from '@esershnr/artalk'
 import katex from 'katex'
 import type { TokenizerExtension } from 'marked'
 

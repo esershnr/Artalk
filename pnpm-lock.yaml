@@ -121,16 +121,16 @@ importers:
     devDependencies:
       '@artalk/plugin-katex':
         specifier: ^0.2.4
-        version: 0.2.4(@types/katex@0.16.7)(artalk@ui+artalk)(katex@0.16.11)
+        version: 0.2.4(@types/katex@0.16.7)(artalk@2.9.1(marked@14.1.3))(katex@0.16.11)
       '@artalk/plugin-lightbox':
         specifier: ^0.2.4
-        version: 0.2.4(artalk@ui+artalk)(fancybox@3.0.1)(lightbox2@2.11.5)(lightgallery@2.7.2)(photoswipe@5.4.4)
+        version: 0.2.4(artalk@2.9.1(marked@14.1.3))(fancybox@3.0.1)(lightbox2@2.11.5)(lightgallery@2.7.2)(photoswipe@5.4.4)
+      '@esershnr/artalk':
+        specifier: workspace:^
+        version: link:../../ui/artalk
       '@nolebase/vitepress-plugin-git-changelog':
         specifier: ^2.6.1
         version: 2.6.1(@algolia/client-search@5.9.1)(@types/node@22.7.7)(@types/react@18.3.11)(postcss@8.4.47)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.80.3)(search-insights@2.17.2)(terser@5.36.0)(typescript@5.6.3)
-      artalk:
-        specifier: workspace:^
-        version: link:../../ui/artalk
       katex:
         specifier: ^0.16.11
         version: 0.16.11
@@ -210,15 +210,15 @@ importers:
 
   ui/artalk-sidebar:
     devDependencies:
+      '@esershnr/artalk':
+        specifier: workspace:^
+        version: link:../artalk
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
       '@vitejs/plugin-vue':
         specifier: ^5.1.4
         version: 5.1.4(vite@5.4.9(@types/node@22.7.7)(less@4.2.0)(sass@1.80.3)(terser@5.36.0))(vue@3.5.12(typescript@5.6.3))
-      artalk:
-        specifier: workspace:^
-        version: link:../artalk
       crypto-js:
         specifier: ^4.2.0
         version: 4.2.0
@@ -271,7 +271,7 @@ importers:
 
   ui/plugin-auth:
     devDependencies:
-      artalk:
+      '@esershnr/artalk':
         specifier: workspace:^
         version: link:../artalk
       solid-js:
@@ -293,7 +293,7 @@ importers:
         specifier: ^0.16.11
         version: 0.16.11
     devDependencies:
-      artalk:
+      '@esershnr/artalk':
         specifier: workspace:^
         version: link:../artalk
       marked:
@@ -315,7 +315,7 @@ importers:
         specifier: '*'
         version: 5.4.9(@types/node@22.7.7)(less@4.2.0)(sass@1.80.3)(terser@5.36.0)
     devDependencies:
-      artalk:
+      '@esershnr/artalk':
         specifier: workspace:^
         version: link:../artalk
       esbuild-plugin-raw:
@@ -327,7 +327,7 @@ importers:
 
   ui/plugin-lightbox:
     devDependencies:
-      artalk:
+      '@esershnr/artalk':
         specifier: workspace:^
         version: link:../artalk
       fancybox:
@@ -5338,10 +5338,10 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@artalk/plugin-katex@0.2.4(@types/katex@0.16.7)(artalk@ui+artalk)(katex@0.16.11)':
+  '@artalk/plugin-katex@0.2.4(@types/katex@0.16.7)(artalk@2.9.1(marked@14.1.3))(katex@0.16.11)':
     dependencies:
       '@types/katex': 0.16.7
-      artalk: link:ui/artalk
+      artalk: 2.9.1(marked@14.1.3)
       katex: 0.16.11
 
   '@artalk/plugin-kit@1.0.7(@types/node@22.7.7)(artalk@2.9.1(marked@14.1.3))(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7)(less@4.2.0)(sass@1.80.3)(terser@5.36.0))':
@@ -5354,9 +5354,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@artalk/plugin-lightbox@0.2.4(artalk@ui+artalk)(fancybox@3.0.1)(lightbox2@2.11.5)(lightgallery@2.7.2)(photoswipe@5.4.4)':
+  '@artalk/plugin-lightbox@0.2.4(artalk@2.9.1(marked@14.1.3))(fancybox@3.0.1)(lightbox2@2.11.5)(lightgallery@2.7.2)(photoswipe@5.4.4)':
     dependencies:
-      artalk: link:ui/artalk
+      artalk: 2.9.1(marked@14.1.3)
     optionalDependencies:
       fancybox: 3.0.1
       lightbox2: 2.11.5

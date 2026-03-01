@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArtalkType } from 'artalk'
+import type { ArtalkType } from '@esershnr/artalk'
 import { storeToRefs } from 'pinia'
 import { useNavStore } from '../stores/nav'
 import { artalk } from '../global'

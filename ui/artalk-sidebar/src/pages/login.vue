@@ -7,7 +7,7 @@
 </route>
 
 <script setup lang="ts">
-import type { ArtalkType } from 'artalk'
+import type { ArtalkType } from '@esershnr/artalk'
 import { getArtalk } from '../global'
 import { useUserStore } from '../stores/user'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArtalkType } from 'artalk'
+import type { ArtalkType } from '@esershnr/artalk'
 import { useNavStore } from '../stores/nav'
 import { artalk, bootParams } from '../global'
 

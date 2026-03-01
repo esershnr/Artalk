@@ -4,12 +4,12 @@
   "homepage": "https://artalk.js.org",
   "packageManager": "pnpm@9.10.0",
   "scripts": {
-    "dev": "pnpm -F artalk dev",
-    "dev:sidebar": "pnpm -F @artalk/artalk-sidebar dev",
+    "dev": "pnpm -F @esershnr/artalk dev",
+    "dev:sidebar": "pnpm -F @esershnr/artalk-sidebar dev",
     "dev:docs": "pnpm -F=docs dev:docs",
     "dev:landing": "pnpm -F=docs-landing dev",
-    "build": "pnpm -F artalk build",
-    "build:sidebar": "pnpm -F @artalk/artalk-sidebar build",
+    "build": "pnpm -F @esershnr/artalk build",
+    "build:sidebar": "pnpm -F @esershnr/artalk-sidebar build",
     "build:all": "pnpm build && pnpm build:sidebar",
     "build:plugins": "pnpm -F @artalk/plugin-* build",
     "build:auth": "pnpm -F @artalk/plugin-auth build",
@@ -24,7 +24,7 @@
     "lint": "pnpm lint:eslint && pnpm lint:prettier",
     "lint:fix": "pnpm lint:eslint --fix && pnpm lint:prettier --write",
     "check:publish": "node scripts/check-npm-publish.mjs",
-    "test": "pnpm -F artalk test"
+    "test": "pnpm -F @esershnr/artalk test"
   },
   "devDependencies": {
     "@artalk/plugin-kit": "^1.0.7",

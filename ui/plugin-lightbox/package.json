@@ -16,14 +16,14 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "artalk": "workspace:^",
+    "@esershnr/artalk": "workspace:^",
     "fancybox": "^3.0.1",
     "lightbox2": "^2.11.5",
     "lightgallery": "^2.7.2",
     "photoswipe": "^5.4.4"
   },
   "peerDependencies": {
-    "artalk": "workspace:^",
+    "@esershnr/artalk": "workspace:^",
     "fancybox": "^3.0.1",
     "lightbox2": "^2.11.5",
     "lightgallery": "^2.7.2",

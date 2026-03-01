@@ -20,12 +20,12 @@
     "katex": "^0.16.11"
   },
   "devDependencies": {
-    "artalk": "workspace:^",
+    "@esershnr/artalk": "workspace:^",
     "marked": "^14.1.3"
   },
   "peerDependencies": {
     "@types/katex": "^0.16.7",
-    "artalk": "workspace:^",
+    "@esershnr/artalk": "workspace:^",
     "katex": "^0.16.11"
   },
   "exports": {

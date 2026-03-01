@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import type { LibraryOptions, Plugin } from 'vite'
 import ts from 'typescript'
-import type { ConfigPartial } from 'artalk'
+import type { ConfigPartial } from '@esershnr/artalk'
 
 import { RUNTIME_PATH, getRuntimeCode, wrapVirtualPrefix } from './runtime-helper'
 import { getInjectHTMLTags, hijackIndexPage } from './dev-page'
@@ -36,10 +36,10 @@ export const ViteArtalkPluginKit = (opts: ViteArtalkPluginKitOptions = {}): Plug
         build: {
           target: 'es2015',
           rollupOptions: {
-            external: ['artalk'],
+            external: ['@esershnr/artalk'],
             output: {
               globals: {
-                artalk: 'Artalk',
+                '@esershnr/artalk': 'Artalk',
               },
               exports: 'named',
               extend: true,

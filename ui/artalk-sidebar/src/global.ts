@@ -1,5 +1,5 @@
-import Artalk from 'artalk'
-import type { LocalUser } from 'artalk'
+import Artalk from '@esershnr/artalk'
+import type { LocalUser } from '@esershnr/artalk'
 
 export let artalk: Artalk | null = null
 

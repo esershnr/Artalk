@@ -1,5 +1,5 @@
 {
-  "name": "artalk",
+  "name": "@esershnr/artalk",
   "version": "2.9.1",
   "description": "A self-hosted comment system",
   "keywords": [
@@ -9,11 +9,11 @@
     "comments",
     "blog"
   ],
-  "homepage": "https://artalk.js.org",
-  "bugs": "https://github.com/ArtalkJS/Artalk/issue",
+  "homepage": "https://github.com/esershnr/Artalk",
+  "bugs": "https://github.com/esershnr/Artalk/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArtalkJS/Artalk.git",
+    "url": "https://github.com/esershnr/Artalk.git",
     "directory": "ui/artalk"
   },
   "license": "MIT",
@@ -89,6 +89,16 @@
         "default": "./dist/i18n/ru.mjs"
       }
     },
+    "./i18n/tr": {
+      "require": {
+        "types": "./dist/i18n/tr.d.cts",
+        "default": "./dist/i18n/tr.cjs"
+      },
+      "default": {
+        "types": "./dist/i18n/tr.d.ts",
+        "default": "./dist/i18n/tr.mjs"
+      }
+    },
     "./i18n/*": "./dist/i18n/*",
     "./Artalk.css": "./dist/Artalk.css",
     "./ArtalkLite.css": "./dist/ArtalkLite.css",
@@ -120,6 +130,16 @@
       "default": {
         "types": "./dist/i18n/zh-TW.d.ts",
         "default": "./dist/i18n/zh-TW.mjs"
+      }
+    },
+    "./dist/i18n/tr": {
+      "require": {
+        "types": "./dist/i18n/tr.d.cts",
+        "default": "./dist/i18n/tr.cjs"
+      },
+      "default": {
+        "types": "./dist/i18n/tr.d.ts",
+        "default": "./dist/i18n/tr.mjs"
       }
     },
     "./dist/i18n/*": "./dist/i18n/*",

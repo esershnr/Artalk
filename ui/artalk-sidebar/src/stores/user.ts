@@ -1,4 +1,4 @@
-import type { LocalUser } from 'artalk'
+import type { LocalUser } from '@esershnr/artalk'
 import { defineStore } from 'pinia'
 import sha256 from 'crypto-js/sha256'
 import md5 from 'crypto-js/md5'

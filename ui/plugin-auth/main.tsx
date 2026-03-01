@@ -1,6 +1,6 @@
 /* @refresh reload */
 import './style.scss'
-import type { ArtalkPlugin } from 'artalk'
+import type { ArtalkPlugin } from '@esershnr/artalk'
 import { DialogMain } from './DialogMain'
 import { createLayer } from './lib/layer'
 import { RenderEditorUser } from './EditorUser'

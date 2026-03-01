@@ -1,4 +1,4 @@
-import Artalk, { type Context } from 'artalk'
+import Artalk, { type Context } from '@esershnr/artalk'
 import { Router } from 'vue-router'
 import { bootParams } from './global'
 import { useUserStore } from './stores/user'

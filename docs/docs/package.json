@@ -18,7 +18,7 @@
     "@artalk/plugin-katex": "^0.2.4",
     "@artalk/plugin-lightbox": "^0.2.4",
     "@nolebase/vitepress-plugin-git-changelog": "^2.6.1",
-    "artalk": "workspace:^",
+    "@esershnr/artalk": "workspace:^",
     "katex": "^0.16.11",
     "lightgallery": "^2.7.2",
     "vitepress": "1.4.1",
