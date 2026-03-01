@@ -159,6 +159,7 @@ export class SidebarLayer implements ISidebarLayer {
     const query: any = {
       pageKey: this.opts.getConf().get().pageKey,
       site: this.opts.getConf().get().site || '',
+      locale: this.opts.getConf().get().locale,
       user: JSON.stringify(this.opts.getUser().getData()),
       time: +new Date(),
     }

@@ -7,13 +7,30 @@ import { setupI18n } from './i18n'
 import '@esershnr/artalk/Artalk.css'
 import './style.scss'
 import App from './App.vue'
-import { setArtalk } from './global'
+import { bootParams, setArtalk } from './global'
 import { setupArtalk, syncArtalkUser } from './artalk'
 import './lib/promise-polyfill'
 
 // I18n
 // @see https://vue-i18n.intlify.dev
 const { i18n, setLocale } = setupI18n()
+
+// Debugging
+const ARTALK_LOCALE_KEY = 'atk_sidebar_forced_locale'
+
+// Immediately apply local passed from parent via URL params if present
+let urlLocale = bootParams.locale && bootParams.locale !== 'auto' ? bootParams.locale : ''
+
+// Store in sessionStorage to survive potential reloads (since replaceState clears URL)
+if (urlLocale) {
+  sessionStorage.setItem(ARTALK_LOCALE_KEY, urlLocale)
+} else {
+  urlLocale = sessionStorage.getItem(ARTALK_LOCALE_KEY) || ''
+}
+
+if (urlLocale) {
+  setLocale(urlLocale)
+}
 
 // Router
 // @see https://github.com/posva/unplugin-vue-router
@@ -36,7 +53,13 @@ const artalkLoader = () =>
     Artalk.use((ctx) => {
       // When artalk is ready, notify the loader and load the locale
       ctx.watchConf(['locale'], async (conf) => {
-        if (typeof conf.locale === 'string' && conf.locale !== 'auto') await setLocale(conf.locale) // update i18n locale
+        // PRIORITIZE: The locale passed from the parent site or stored in session
+        // FALLBACK: The locale set in the Artalk backend/admin panel
+        const locale = urlLocale || conf.locale
+
+        if (typeof locale === 'string' && locale !== 'auto') {
+          await setLocale(locale) // update i18n locale
+        }
 
         if (!artalkLoaded) {
           artalkLoaded = true

@@ -5,7 +5,10 @@
 > [!IMPORTANT]
 > **Unofficial Scoped Version (@esershnr/artalk)**
 > This is an unofficial fork of Artalk, scoped under the `@esershnr` namespace on NPM.
-> It includes comprehensive Turkish language support and is maintained for use in specific web projects.
+> 
+> **Key Enhancements:**
+> - 🇹🇷 **Full Turkish Support:** Comprehensive Turkish translations for both the client and the admin sidebar.
+> - 🔄 **Dynamic Sidebar Sync:** The sidebar (dashboard) now automatically synchronizes its language with the parent website's current locale, ensuring a consistent user experience.
 >
 > **Installation:**
 > ```bash

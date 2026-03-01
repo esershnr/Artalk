@@ -51,6 +51,7 @@ function getBootParams() {
     user,
     pageKey: p.get('pageKey') || '',
     site: p.get('site') || '',
+    locale: p.get('locale') || '',
     view: p.get('view') || '',
     viewParams: <any>null,
     darkMode,
