@@ -2,6 +2,17 @@
 <img src="https://user-images.githubusercontent.com/22412567/171680920-6e74b77c-c565-487b-bff1-4f94976ecbe7.png" alt="Artalk" width="100%">
 </p>
 
+> [!IMPORTANT]
+> **Unofficial Scoped Version (@esershnr/artalk)**
+> This is an unofficial fork of Artalk, scoped under the `@esershnr` namespace on NPM.
+> It includes comprehensive Turkish language support and is maintained for use in specific web projects.
+>
+> **Installation:**
+> ```bash
+> npm install @esershnr/artalk
+> ```
+
+
 # Artalk
 
 [![npm version](https://img.shields.io/npm/v/artalk.svg?style=flat-square)](https://www.npmjs.com/package/artalk)
