@@ -1,3 +1,5 @@
+import type { Context } from 'artalk'
+
 const STORAGE_KEY = 'atk_sidebar_forced_locale'
 
 /**
@@ -54,4 +56,46 @@ function safely<T>(fn: () => T): T | undefined {
   } catch {
     return undefined
   }
+}
+
+/** Locales bundled into the Artalk client, the other client locale sets are external */
+const BUNDLED_CLIENT_LOCALES = ['en', 'zh-CN']
+
+/**
+ * Get the plugin URLs which load the Artalk client locale set of a locale
+ *
+ * The backend serves the external locale sets as `dist/i18n/<locale>.js` and adds
+ * the one of its own locale to `pluginURLs` with the same URL, so a set is not
+ * loaded twice when the forced locale equals the backend locale.
+ */
+export function getClientLocaleURLs(locale: string): string[] {
+  if (!locale || BUNDLED_CLIENT_LOCALES.includes(locale)) return []
+  return [`dist/i18n/${locale}.js`]
+}
+
+/**
+ * Check if the Artalk client has the locale set of a locale
+ *
+ * An external locale set registers itself to `window.ArtalkI18n` when loaded.
+ */
+export function hasClientLocale(locale: string): boolean {
+  if (BUNDLED_CLIENT_LOCALES.includes(locale)) return true
+  const sets = (window as { ArtalkI18n?: Record<string, unknown> }).ArtalkI18n
+  return !!sets?.[locale]
+}
+
+/**
+ * Apply the forced locale to the Artalk instance
+ *
+ * Must be called after the network plugins are loaded and before Artalk is
+ * mounted, i.e. by a plugin. If the client locale set of the forced locale
+ * failed to load, nothing is applied and the backend locale is kept, as if no
+ * locale was forced.
+ *
+ * @returns Whether the forced locale was applied
+ */
+export function applyForcedLocale(ctx: Pick<Context, 'updateConf'>, locale: string): boolean {
+  if (!locale || !hasClientLocale(locale)) return false
+  ctx.updateConf({ locale })
+  return true
 }
