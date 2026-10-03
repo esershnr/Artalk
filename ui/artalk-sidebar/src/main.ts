@@ -9,7 +9,7 @@ import './style.scss'
 import App from './App.vue'
 import { bootParams, setArtalk } from './global'
 import { setupArtalk, syncArtalkUser } from './artalk'
-import { resolveForcedLocale } from './lib/forced-locale'
+import { applyForcedLocale, resolveForcedLocale } from './lib/forced-locale'
 import './lib/promise-polyfill'
 
 // I18n
@@ -38,10 +38,13 @@ const artalkLoader = () =>
     let artalk: Artalk | null = null
 
     Artalk.use((ctx) => {
+      // The network plugins, including the client locale set of the forced locale,
+      // are loaded by now. If the set failed to load, the backend locale is kept.
+      applyForcedLocale(ctx, forcedLocale)
+
       // When artalk is ready, notify the loader and load the locale
       ctx.watchConf(['locale'], async (conf) => {
-        const locale = forcedLocale || conf.locale
-        if (typeof locale === 'string' && locale !== 'auto') await setLocale(locale) // update i18n locale
+        if (typeof conf.locale === 'string' && conf.locale !== 'auto') await setLocale(conf.locale) // update i18n locale
 
         if (!artalkLoaded) {
           artalkLoaded = true
