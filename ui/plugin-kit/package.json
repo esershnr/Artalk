@@ -30,12 +30,12 @@
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "artalk": "workspace:^",
+    "artalk": "workspace:@esershnr/artalk@^",
     "tsdown": "^0.22.13",
     "vite": "^8.1.5"
   },
   "peerDependencies": {
-    "artalk": "workspace:^",
+    "artalk": "workspace:@esershnr/artalk@^",
     "typescript": "*",
     "vite": "*"
   }

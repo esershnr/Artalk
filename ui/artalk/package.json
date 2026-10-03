@@ -1,6 +1,6 @@
 {
-  "name": "artalk",
-  "version": "2.10.0",
+  "name": "@esershnr/artalk",
+  "version": "2.10.0-esershnr.1",
   "description": "A self-hosted comment system",
   "keywords": [
     "comment-system",
@@ -10,10 +10,10 @@
     "blog"
   ],
   "homepage": "https://artalk.js.org",
-  "bugs": "https://github.com/ArtalkJS/Artalk/issue",
+  "bugs": "https://github.com/esershnr/Artalk/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArtalkJS/Artalk.git",
+    "url": "https://github.com/esershnr/Artalk.git",
     "directory": "ui/artalk"
   },
   "license": "MIT",
@@ -131,6 +131,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "pnpm build:main && pnpm build:lite && pnpm build:i18n",

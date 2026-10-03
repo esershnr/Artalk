@@ -134,7 +134,7 @@ importers:
         specifier: ^2.18.2
         version: 2.18.2(vitepress@1.6.4(@algolia/client-search@5.52.0)(@types/node@25.9.5)(@types/react@18.3.11)(jiti@2.6.1)(less@4.6.4)(lightningcss@1.32.0)(postcss@8.5.22)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.101.3)(search-insights@2.17.2)(terser@5.49.0)(tsx@4.23.1)(typescript@6.0.3)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../../ui/artalk
       katex:
         specifier: ^0.17.0
@@ -231,7 +231,7 @@ importers:
         specifier: ^6.0.8
         version: 6.0.8(vite@8.1.5(@types/node@25.9.5)(esbuild@0.28.1)(jiti@2.6.1)(less@4.6.4)(sass@1.101.3)(terser@5.49.0)(tsx@4.23.1)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../artalk
       crypto-js:
         specifier: ^4.2.0
@@ -286,7 +286,7 @@ importers:
         specifier: workspace:^
         version: link:../plugin-kit
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../artalk
       solid-js:
         specifier: ^1.9.14
@@ -304,7 +304,7 @@ importers:
         specifier: workspace:^
         version: link:../plugin-kit
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../artalk
       katex:
         specifier: ^0.17.0
@@ -326,7 +326,7 @@ importers:
         version: 6.0.3
     devDependencies:
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../artalk
       tsdown:
         specifier: ^0.22.13
@@ -341,7 +341,7 @@ importers:
         specifier: workspace:^
         version: link:../plugin-kit
       artalk:
-        specifier: workspace:^
+        specifier: workspace:@esershnr/artalk@^
         version: link:../artalk
       fancybox:
         specifier: ^3.0.1

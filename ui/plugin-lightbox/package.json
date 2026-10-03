@@ -17,14 +17,14 @@
   },
   "devDependencies": {
     "@artalk/plugin-kit": "workspace:^",
-    "artalk": "workspace:^",
+    "artalk": "workspace:@esershnr/artalk@^",
     "fancybox": "^3.0.1",
     "lightbox2": "^2.12.0",
     "lightgallery": "^2.9.0",
     "photoswipe": "^5.4.4"
   },
   "peerDependencies": {
-    "artalk": "workspace:^",
+    "artalk": "workspace:@esershnr/artalk@^",
     "fancybox": "^3.0.1",
     "lightbox2": "^2.12.0",
     "lightgallery": "^2.9.0",
