@@ -10,6 +10,7 @@ import App from './App.vue'
 import { bootParams, setArtalk } from './global'
 import { setupArtalk, syncArtalkUser } from './artalk'
 import { resolveForcedLocale } from './lib/forced-locale'
+import { loadClientLocale } from './lib/client-locale'
 import './lib/promise-polyfill'
 
 // I18n
@@ -32,16 +33,20 @@ const pinia = createPinia()
 
 // Artalk
 // @see https://artalk.js.org
-const artalkLoader = () =>
-  new Promise<Artalk>((notifyArtalkLoaded) => {
+const artalkLoader = async () => {
+  // Load the client locale set of the forced locale first. If that fails, follow
+  // the backend locale as if no locale was forced.
+  const locale = forcedLocale && (await loadClientLocale(forcedLocale)) ? forcedLocale : ''
+
+  return new Promise<Artalk>((notifyArtalkLoaded) => {
     let artalkLoaded = false
     let artalk: Artalk | null = null
 
     Artalk.use((ctx) => {
       // When artalk is ready, notify the loader and load the locale
       ctx.watchConf(['locale'], async (conf) => {
-        const locale = forcedLocale || conf.locale
-        if (typeof locale === 'string' && locale !== 'auto') await setLocale(locale) // update i18n locale
+        const value = locale || conf.locale
+        if (typeof value === 'string' && value !== 'auto') await setLocale(value) // update i18n locale
 
         if (!artalkLoaded) {
           artalkLoaded = true
@@ -50,8 +55,9 @@ const artalkLoader = () =>
       })
     })
 
-    artalk = setupArtalk(forcedLocale)
+    artalk = setupArtalk(locale)
   })
+}
 
 // Mount Vue app
 ;(async () => {
