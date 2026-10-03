@@ -3,7 +3,10 @@ import { Router } from 'vue-router'
 import { bootParams } from './global'
 import { useUserStore } from './stores/user'
 
-export function setupArtalk() {
+/**
+ * @param locale - The locale forced by the parent page, the backend locale is used if empty
+ */
+export function setupArtalk(locale?: string) {
   // Create virtual element for Artalk
   const artalkEl = document.createElement('div')
   artalkEl.style.display = 'none'
@@ -16,6 +19,7 @@ export function setupArtalk() {
     pageKey: bootParams.pageKey,
     site: bootParams.site,
     darkMode: bootParams.darkMode,
+    ...(locale ? { locale } : {}),
     pvAdd: false,
     noComment: `<div class="atk-sidebar-no-content"></div>`,
     flatMode: true,
