@@ -1,6 +1,6 @@
 # Homelab sürümü: yayın talimatı
 
-Bu dal (`homelab`), upstream `v2.10.0` etiketinin üzerine şunları ekler:
+Bu dal (`homelab`), upstream `v2.10.0` etiketinin üzerine şunları ekler (2.10.1-esershnr.1'den beri `v2.10.1` merge'lü):
 
 1. `fix(ui): add img role to labelled editor plug button icons` (PR dalı: `fix/editor-plug-btn-a11y`)
 2. `feat(ui/sidebar): follow the locale of the parent page` (PR dalı: `feat/sidebar-locale-passthrough`)
@@ -28,13 +28,19 @@ Upstream PR'ları:
 
 | Ne           | Değer                                         |
 | ------------ | --------------------------------------------- |
-| Sürüm        | `2.10.0-esershnr.3`                           |
-| Docker imajı | `esershnr/artalk:2.10.0-esershnr.3`           |
-| npm paketi   | `@esershnr/artalk@2.10.0-esershnr.3`          |
-| Taban        | upstream `v2.10.0` (`git describe` ile bakın) |
+| Sürüm        | `2.10.1-esershnr.1`                           |
+| Docker imajı | `esershnr/artalk:2.10.1-esershnr.1`           |
+| npm paketi   | `@esershnr/artalk@2.10.1-esershnr.1`          |
+| Taban        | upstream `v2.10.1` (`git describe` ile bakın) |
 
 Değişiklik geçmişi:
 
+- `2.10.1-esershnr.1`
+  - Taban upstream `v2.10.1`e çıkarıldı (merge, force-push yok). Upstream'in güvenlik
+    düzeltmeleri (yetki, yorum/bildirim sahipliği, sidebar token'ı query string'den çıktı,
+    data URL kısıtı) geldi. #1188, #1189 ve #1190 upstream'e girdi; fork'a özel kalan sidebar
+    dili (#1191) ve yayın adı. Eklentilerin `peerDependencies`'i upstream'de sürüm aralığına
+    döndü, fork'ta `workspace:@esershnr/artalk@^` korunuyor.
 - `2.10.0-esershnr.3`
   - Sidebar'a `locale` zorlandığında istemci dil seti artık upstream'in `pluginURLs`
     mekanizmasıyla (`dist/i18n/<locale>.js`) yükleniyor ve zorlanan dil bir sidebar eklentisinde
@@ -80,7 +86,7 @@ ağacındaki `ui/*/node_modules` build context'e sızar ve container içindeki U
 git worktree add --detach ../artalk-release homelab
 cd ../artalk-release
 
-VERSION=2.10.0-esershnr.3
+VERSION=2.10.1-esershnr.1
 
 docker build \
   --build-arg APP_VERSION="v${VERSION}" \
@@ -88,7 +94,7 @@ docker build \
   --build-arg TZ=Europe/Istanbul \
   -t "esershnr/artalk:${VERSION}" .
 
-# Çıktı: Artalk (v2.10.0-esershnr.3/<commit>)
+# Çıktı: Artalk (v2.10.1-esershnr.1/<commit>)
 # (Windows Git Bash'te komutun başına MSYS_NO_PATHCONV=1 ekleyin)
 docker run --rm --entrypoint /artalk "esershnr/artalk:${VERSION}" version
 
@@ -99,7 +105,7 @@ cd - && git worktree remove ../artalk-release
 ```
 
 `APP_VERSION` zorunludur. `.git` imaja kopyalanmadığı için verilmezse backend sürümü
-`internal/config/version.go` içindeki `v2.10.0` olur. İstemci (`2.10.0-esershnr.3`) ile
+`internal/config/version.go` içindeki upstream sürümü olur. İstemci (`2.10.1-esershnr.1`) ile
 backend sürümü eşleşmezse yorum listesinin üstünde "istemciyi güncelleyin" uyarısı çıkar.
 
 Saat dilimi: `--build-arg TZ` yalnızca konteynerin işletim sistemi saatini ayarlar (verilmezse
@@ -124,7 +130,7 @@ Compose dosyasında etiketi sabitleyin (isterseniz digest ile) ve saat dilimini 
 ```yaml
 services:
   artalk:
-    image: esershnr/artalk:2.10.0-esershnr.3
+    image: esershnr/artalk:2.10.1-esershnr.1
     environment:
       - ATK_TIMEZONE=Europe/Istanbul # yorum tarihleri; artalk.yml'deki timezone'u ezer
 ```
@@ -154,13 +160,13 @@ npm publish --tag homelab                    # 2FA varsa: --otp <kod>
   `--tag` olmadan yayını reddeder (`You must specify a tag using --tag ...`).
 - `--tag next`: yaygın alternatif ad; davranışı aynı.
 - `latest`'i de bu sürüme taşımak isterseniz yayından sonra:
-  `npm dist-tag add @esershnr/artalk@2.10.0-esershnr.3 latest`
+  `npm dist-tag add @esershnr/artalk@2.10.1-esershnr.1 latest`
 
 Tüketen projede sürümü tam sabitleyin. Alias ile kurarsanız kod `artalk` adıyla import etmeye
 devam eder ve resmi pakete dönmek tek satır olur:
 
 ```sh
-pnpm add artalk@npm:@esershnr/artalk@2.10.0-esershnr.3
+pnpm add artalk@npm:@esershnr/artalk@2.10.1-esershnr.1
 ```
 
 ## 3. Sürüm yükseltme (upstream yeni sürüm çıkarınca)
@@ -168,7 +174,7 @@ pnpm add artalk@npm:@esershnr/artalk@2.10.0-esershnr.3
 Örnek: upstream `v2.11.0` yayınladı.
 
 ```sh
-OLD=2.10.0-esershnr.3
+OLD=2.10.1-esershnr.1
 OLD_BASE=v2.10.0   # homelab'in şu anki tabanı
 NEW_BASE=v2.11.0
 NEW=2.11.0-esershnr.1
@@ -222,7 +228,7 @@ git push --force-with-lease origin homelab
 ```
 
 Sonra 1. ve 2. adımlarla `${NEW}` etiketli imajı ve paketi yayınlayın. Upstream sürüm değişmeden
-yalnızca fork'ta düzeltme yaparsanız sonek artar: `2.10.0-esershnr.3` → `2.10.0-esershnr.4`.
+yalnızca fork'ta düzeltme yaparsanız sonek artar: `2.10.1-esershnr.1` → `2.10.0-esershnr.4`.
 
 Force-push istemiyorsanız alternatif: `git merge "${NEW_BASE}"` ile yeni etiketi `homelab`'e birleştirin.
 Çakışma çözümü aynıdır, geçmiş daha karışık olur.

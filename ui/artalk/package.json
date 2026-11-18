@@ -1,6 +1,6 @@
 {
   "name": "@esershnr/artalk",
-  "version": "2.10.0-esershnr.3",
+  "version": "2.10.1-esershnr.1",
   "description": "A self-hosted comment system",
   "keywords": [
     "comment-system",
@@ -141,9 +141,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "dev": "vite",
     "build": "pnpm build:main && pnpm build:lite && pnpm build:i18n",
@@ -167,5 +164,8 @@
   },
   "peerDependencies": {
     "marked": "^18.0.7"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

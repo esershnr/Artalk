@@ -1,5 +1,6 @@
 import Artalk, { type Context } from 'artalk'
 import { Router } from 'vue-router'
+import { restoreGuestCredential } from './lib/guest-handoff'
 import { bootParams } from './global'
 import { useUserStore } from './stores/user'
 import { getClientLocaleURLs } from './lib/forced-locale'
@@ -35,6 +36,7 @@ export function setupArtalk(locale?: string) {
 }
 
 export async function syncArtalkUser(artalk: Context, router: Router) {
+  await restoreGuestCredential(artalk, bootParams.guestToken)
   const user = useUserStore()
   const logout = () => {
     user.logout()
@@ -80,8 +82,16 @@ function checkUser(artalk: Context, logout: () => void) {
       if (res.data.is_admin && !res.data.is_login) {
         logout()
       } else {
-        // Mark all notifications as read
-        artalk.getApi().notifies.markAllNotifyRead({ email, name })
+        // Clear only notifications owned by this login or browser credential.
+        if (
+          artalk.getUser().getData().token ||
+          artalk.getUser().getGuestToken?.(artalk.getConf().server)
+        ) {
+          artalk
+            .getApi()
+            .notifies.markAllNotifyRead({ email, name })
+            .catch(() => {})
+        }
       }
     })
 }
